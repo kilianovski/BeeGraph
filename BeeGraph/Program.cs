@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using BeeGraph.Core;
 using BeeGraph.Domain;
 
@@ -16,22 +14,9 @@ namespace BeeGraph
             {
                 var userResponse = Console.ReadLine();
                 var response = dialog.Talk(userResponse);
-                Console.WriteLine(response.Body);
-
-                foreach (var edge in response.Edges)
-                {
-                    Console.WriteLine(edge.Body);
-                    foreach (var edgeKey in edge.Keys)
-                    {
-                        Console.WriteLine(edgeKey);
-                    }
-
-                }
+                Console.WriteLine(response.Value.Body);                
             }
-            Console.WriteLine("Hello World!");
         }
-
-        
     }
 
     internal class NodeBuilder
@@ -40,7 +25,7 @@ namespace BeeGraph
 
         private int _counter = 0;
 
-        public Node NewNode(string name) => new Node(_counter++, name, Enumerable.Empty<Edge>());
+        public Node NewNode(string name) => new Node(_counter++, name);
     }
 
     public static class TestData
@@ -55,22 +40,25 @@ namespace BeeGraph
                 var joke = nodeBuilder.NewNode("Joke");
                 var about = nodeBuilder.NewNode("About");
 
-                var fromHomeToJoke = new Edge(0, "To the joke!", new[] { "1", "joke" }, joke);
-                home.WithNewEdge(fromHomeToJoke);
+                var fromHomeToJoke = new Edge(0, "joke", home, joke);
+                var fromHomeToAbout = new Edge(1, "about", home, about);
+                var fromJokeToHome = new Edge(2, "home", home, home);
 
-                var fromHomeToAbout = new Edge(1, "About", new[] { "2", "about" }, about);
-                home.WithNewEdge(fromHomeToAbout);
-
-                var fromJokeToHome = new Edge(2, "Home", new[] { "3", "home" }, home);
-                joke.WithNewEdge(fromJokeToHome);
-
-                var result = new DialogGraph(new []
+                var nodes = new[]
                 {
                     home,
                     joke,
                     about
-                });
+                };
 
+                var edges = new[]
+                {
+                    fromHomeToJoke,
+                    fromHomeToAbout,
+                    fromJokeToHome
+                };
+
+                var result = new DialogGraph(nodes, edges);
                 return result;
             }
         }

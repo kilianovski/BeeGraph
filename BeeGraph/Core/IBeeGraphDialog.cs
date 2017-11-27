@@ -1,9 +1,10 @@
 ﻿using BeeGraph.Domain;
+using BeeGraph.Infrastructure;
 
 namespace BeeGraph.Core
 {
     public interface IBeeGraphDialog
     {
-        Node Talk(string userResponse);
+        Maybe<Node> Talk(string userResponse);
     }
 }

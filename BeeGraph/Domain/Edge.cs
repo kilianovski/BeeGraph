@@ -5,16 +5,16 @@ namespace BeeGraph.Domain
     public class Edge
     {
         public int Id { get; }
-        public string Body { get; }
-        public IEnumerable<string> Keys { get; }
-        public Node TargetNode { get; }
+        public string Key { get; }
+        public Node From { get; }
+        public Node To { get; }
 
-        public Edge(int id, string body, IEnumerable<string> keys, Node targetNode)
+        public Edge(int id, string key, Node @from, Node to)
         {
             Id = id;
-            Body = body;
-            Keys = keys;
-            TargetNode = targetNode;
+            Key = key;
+            From = @from;
+            To = to;
         }
     }
 }
