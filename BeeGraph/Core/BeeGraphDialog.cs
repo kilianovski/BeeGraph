@@ -7,18 +7,21 @@ namespace BeeGraph.Core
     public class BeeGraphDialog : IBeeGraphDialog
     {
         private readonly DialogGraph _graph;
+        private int _currentNodeId = 0;
 
         public BeeGraphDialog(DialogGraph graph)
         {
             _graph = graph;
         }
-        public Node Talk(int nodeId, string userResponse)
+        public Node Talk(string userResponse)
         {
             var result = _graph.Nodes
-                .Single(n => n.Id == nodeId)
+                .Single(n => n.Id == _currentNodeId)
                 .Edges
                 .Single(e => e.Keys.Contains(userResponse))
-                .Node;
+                .TargetNode;
+
+            _currentNodeId = result.Id;
 
             return result;
         }

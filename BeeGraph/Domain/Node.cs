@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Immutable;
+using BeeGraph.Infrastructure;
 
 namespace BeeGraph.Domain
 {
     public class Node
     {
-        public Node(int id, string body, HashSet<Edge> edges)
+        public Node(int id, string body, IEnumerable<Edge> edges)
         {
             Edges = edges;
             Body = body;
@@ -13,6 +15,12 @@ namespace BeeGraph.Domain
 
         public int Id { get; }
         public string Body { get; }
-        public HashSet<Edge> Edges { get; }
+        public IEnumerable<Edge> Edges { get; private set; }
+
+        public Node WithNewEdge(Edge e)
+        {
+            Edges = Edges.Append(e);
+            return this;
+        }
     }
 }

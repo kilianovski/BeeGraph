@@ -4,6 +4,6 @@ namespace BeeGraph.Core
 {
     public interface IBeeGraphDialog
     {
-        Node Talk(int nodeId, string userResponse);
+        Node Talk(string userResponse);
     }
 }

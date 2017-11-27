@@ -6,15 +6,15 @@ namespace BeeGraph.Domain
     {
         public int Id { get; }
         public string Body { get; }
-        public HashSet<string> Keys { get; }
-        public Node Node { get; }
+        public IEnumerable<string> Keys { get; }
+        public Node TargetNode { get; }
 
-        public Edge(int id, string body, HashSet<string> keys, Node node)
+        public Edge(int id, string body, IEnumerable<string> keys, Node targetNode)
         {
             Id = id;
             Body = body;
             Keys = keys;
-            Node = node;
+            TargetNode = targetNode;
         }
     }
 }
