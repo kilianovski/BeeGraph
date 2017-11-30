@@ -1,74 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using BeeGraph.Data.Interfaces;
-using BeeGraph.Domain;
 using System.Data.SqlClient;
+using BeeGraph.Data.Constants;
+using BeeGraph.Data.Helpers;
+using BeeGraph.Domain;
 
-namespace BeeGraph.Data.Impl
+namespace BeeGraph.Data
 {
     public class NodeSpRepository : INodeRepository
     {
+        private readonly IStoredProcedureHelper _spHelper;
         private static string cs = "Server=localhost\\SQLEXPRESS;Database=BeeGraph_Test;Trusted_Connection=True;";
+
+        public NodeSpRepository(IStoredProcedureHelper spHelper)
+        {
+            _spHelper = spHelper;
+        }
 
         public IEnumerable<Node> GetAll()
         {
-            string spName = "sp_GetNodes";
-            return Connect(cs, GetAll);
+            return _spHelper.ExecuteReader(StoredProcedure.GetNodes, ReadNode);
+        }
 
-            IEnumerable<Node> GetAll(SqlConnection connection)
-            {
-                var command = new SqlCommand(spName, connection);
-                command.CommandType = CommandType.StoredProcedure;
-
-                var reader = command.ExecuteReader();
-
-                var result = new List<Node>();
-
-                while (reader.Read())
-                {
-                    int id = reader.GetInt32(0);
-                    string body = reader.GetString(1);
-
-                    result.Add(new Node(id, body));
-                }
-                return result;
-            }
-
+        private Node ReadNode(SqlDataReader reader)
+        {
+            int id = reader.GetInt32(0);
+            string body = reader.GetString(1);
+            return new Node(id, body);
         }
 
         public int CreateNode(string body)
         {
-            string spName = "sp_InsertNode";
-
-            return Connect(cs, CreateNode);
-
-            int CreateNode(SqlConnection connection)
+            var bodyParam = new SqlParameter
             {
-                var command = new SqlCommand(spName, connection);
-                command.CommandType = CommandType.StoredProcedure;
+                ParameterName = "@body",
+                Value = body
+            };
 
-                var bodyParam = new SqlParameter()
-                {
-                    ParameterName = "@body",
-                    Value = body
-                };
+            var result = _spHelper.ExecuteScalar(StoredProcedure.InsertNode, bodyParam);
 
-                command.Parameters.Add(bodyParam);
-
-                var result = command.ExecuteScalar();
-                return (int)(decimal)result;
-            }
-        }
-        
-
-        public static TR Connect<TR>(string connString, Func<SqlConnection, TR> f)
-        {
-            using (var conn = new SqlConnection(connString))
-            {
-                conn.Open();
-                return f(conn);
-            }
+            return (int)(decimal)result;           
         }
     }
 }

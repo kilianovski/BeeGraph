@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using BeeGraph.Domain;
 
-namespace BeeGraph.Data.Interfaces
+namespace BeeGraph.Data
 {
     public interface INodeRepository
     {
