@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using static BeeGraph.Infrastructure.Maybe;
+using BeeGraph.Infrastructure.Monads;
+using static BeeGraph.Infrastructure.Monads.Maybe;
 
 namespace BeeGraph.Infrastructure
 {

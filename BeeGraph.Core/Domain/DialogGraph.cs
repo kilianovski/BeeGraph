@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BeeGraph.Domain
+namespace BeeGraph.Core.Domain
 {
     public class DialogGraph
     {

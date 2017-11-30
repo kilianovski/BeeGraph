@@ -1,8 +1,7 @@
-﻿using System;
-using BeeGraph.Core;
-using BeeGraph.Domain;
+﻿using BeeGraph.Core;
+using BeeGraph.Core.Domain;
 
-namespace BeeGraph
+namespace BeeGraph.Console
 {
     class Program
     {
@@ -12,9 +11,9 @@ namespace BeeGraph
 
             while (true)
             {
-                var userResponse = Console.ReadLine();
+                var userResponse = System.Console.ReadLine();
                 var response = dialog.Talk(userResponse);
-                Console.WriteLine(response.Value.Body);                
+                System.Console.WriteLine(response.Value.Body);
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace BeeGraph.Domain
+﻿namespace BeeGraph.Core.Domain
 {
     public class Node
     {

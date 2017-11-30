@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BeeGraph.Data\BeeGraph.Data.csproj" />
+    <ProjectReference Include="..\BeeGraph.IoC\BeeGraph.IoC.csproj" />
   </ItemGroup>
 
 </Project>

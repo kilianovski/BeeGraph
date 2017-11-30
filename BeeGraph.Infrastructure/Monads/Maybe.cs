@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BeeGraph.Infrastructure
+namespace BeeGraph.Infrastructure.Monads
 {
     public static class Maybe
     {

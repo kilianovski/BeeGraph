@@ -1,5 +1,6 @@
-﻿using BeeGraph.Domain;
+﻿using BeeGraph.Core.Domain;
 using BeeGraph.Infrastructure;
+using BeeGraph.Infrastructure.Monads;
 
 namespace BeeGraph.Core
 {

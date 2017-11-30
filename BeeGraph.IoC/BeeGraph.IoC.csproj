@@ -1,12 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="SimpleInjector" Version="4.0.12" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\BeeGraph.Core\BeeGraph.Core.csproj" />
   </ItemGroup>
 
 </Project>
