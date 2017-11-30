@@ -1,6 +1,9 @@
-﻿namespace BeeGraph.Data.Impl.Config
+﻿namespace BeeGraph.Data.Config
 {
-    public class HardcodedConnectionStringProvider
+    public class HardcodedConnectionStringProvider : IConnectionStringProvider
     {
+        private static string cs = "Server=localhost\\SQLEXPRESS;Database=BeeGraph_Test;Trusted_Connection=True;";
+
+        public string ConnectionString => cs;
     }
 }

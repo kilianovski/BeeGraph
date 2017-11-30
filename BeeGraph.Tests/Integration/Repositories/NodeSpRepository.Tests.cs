@@ -1,6 +1,5 @@
 ﻿using System.Linq;
-using BeeGraph.Data.Impl;
-using BeeGraph.Data.Interfaces;
+using BeeGraph.Data;
 using FsCheck;
 using FsCheck.Xunit;
 using Xunit;
@@ -13,7 +12,7 @@ namespace BeeGraph.Tests.Integration
 
         public NodeSpRepositoryTests()
         {
-            _nodeRepository = new NodeSpRepository();            
+            _nodeRepository = IoC.Container.GetInstance<INodeRepository>();
         }
 
         [Property]

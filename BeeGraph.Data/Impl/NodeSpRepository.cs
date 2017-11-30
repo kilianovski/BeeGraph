@@ -10,7 +10,6 @@ namespace BeeGraph.Data
     public class NodeSpRepository : INodeRepository
     {
         private readonly IStoredProcedureHelper _spHelper;
-        private static string cs = "Server=localhost\\SQLEXPRESS;Database=BeeGraph_Test;Trusted_Connection=True;";
 
         public NodeSpRepository(IStoredProcedureHelper spHelper)
         {
