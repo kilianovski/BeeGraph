@@ -16,9 +16,12 @@ namespace BeeGraph.Data
         private static Container InitContainer()
         {
             var container = new Container();
-
+                
             container.Register<IConnectionStringProvider, HardcodedConnectionStringProvider>();
             container.Register<IStoredProcedureHelper, StoredProcedureHelper>();
+
+            
+            container.Register<IEdgeRepository, EdgeSpRepository>();
             container.Register<INodeRepository, NodeSpRepository>();
 
             return container;
