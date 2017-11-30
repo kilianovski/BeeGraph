@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using BeeGraph.Domain;
+﻿using BeeGraph.Domain;
 using BeeGraph.Infrastructure;
 
 namespace BeeGraph.Core

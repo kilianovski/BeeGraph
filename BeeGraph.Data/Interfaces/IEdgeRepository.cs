@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using BeeGraph.Domain;
+using BeeGraph.Data.Entities;
 
 namespace BeeGraph.Data
 {
     public interface IEdgeRepository
     {
         int CreateEdge(string key);
-        IEnumerable<Edge> GetAll();
+        IEnumerable<EdgeEntity> GetAll();
     }
 }

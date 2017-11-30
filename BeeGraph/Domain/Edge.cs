@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BeeGraph.Domain
+﻿namespace BeeGraph.Domain
 {
     public class Edge
     {

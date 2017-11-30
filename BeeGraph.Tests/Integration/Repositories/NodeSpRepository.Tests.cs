@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using BeeGraph.Data;
-using FsCheck;
 using FsCheck.Xunit;
-using Xunit;
 
 namespace BeeGraph.Tests.Integration
 {

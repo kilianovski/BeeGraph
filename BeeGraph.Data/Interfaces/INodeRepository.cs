@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using BeeGraph.Domain;
+using BeeGraph.Data.Entities;
 
 namespace BeeGraph.Data
 {
     public interface INodeRepository
     {
-        IEnumerable<Node> GetAll();
         int CreateNode(string body);
+        IEnumerable<NodeEntity> GetAll();
     }
 }

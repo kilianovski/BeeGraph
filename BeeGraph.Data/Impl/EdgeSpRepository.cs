@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using BeeGraph.Data.Constants;
+using BeeGraph.Data.Entities;
 using BeeGraph.Data.Helpers;
-using BeeGraph.Domain;
 
 namespace BeeGraph.Data
 {
@@ -28,16 +28,16 @@ namespace BeeGraph.Data
             return (int) (decimal) result;
         }
 
-        public IEnumerable<Edge> GetAll()
+        public IEnumerable<EdgeEntity> GetAll()
         {
             return _spHelper.ExecuteReader(StoredProcedure.GetEdges, ReadEdge);
         }
 
-        private static Edge ReadEdge(SqlDataReader reader)
+        private static EdgeEntity ReadEdge(SqlDataReader reader)
         {
             var id = reader.GetInt32(0);
             var key = reader.GetString(1);
-            return new Edge(id, key, null, null); // TODO!!1
+            return new EdgeEntity(){ Id = id, Key = key };
         }
     }
 }
