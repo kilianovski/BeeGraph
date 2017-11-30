@@ -38,7 +38,11 @@ namespace BeeGraph.Tests.Integration
             var allRelations = _relationRepository.GetAll();
 
             // assert
-            return allRelations.Any(r => r.Id == newRelationId);
+            return allRelations.Any(r => 
+                                        r.Id == newRelationId
+                                        && r.EdgeId == edge.Id
+                                        && r.FromNodeId == fromNode.Id
+                                        && r.ToNodeId == toNode.Id);
         }
     }
 }
