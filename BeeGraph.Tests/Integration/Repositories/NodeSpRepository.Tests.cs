@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using BeeGraph.Data.Impl;
 using BeeGraph.Data.Interfaces;
 using FsCheck;
 using FsCheck.Xunit;
@@ -10,8 +11,13 @@ namespace BeeGraph.Tests.Integration
     {
         private readonly INodeRepository _nodeRepository;
 
+        public NodeSpRepositoryTests()
+        {
+            _nodeRepository = new NodeSpRepository();            
+        }
+
         [Property]
-        public bool ContainsNewlyCreatedEntity(string body)
+        public bool ContainsNodeAfterAddition(string body)
         {
             if (string.IsNullOrEmpty(body)) body = "1"; // TODO
 
