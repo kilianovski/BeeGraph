@@ -1,6 +1,6 @@
 ﻿namespace BeeGraph.Data.Entities
 {
-    public class EdgeToNodeRelation
+    public class EdgeToNodesRelation
     {
         public int Id { get; set; }
         public int FromNodeId { get; set; }

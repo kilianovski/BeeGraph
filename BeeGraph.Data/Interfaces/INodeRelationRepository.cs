@@ -6,6 +6,6 @@ namespace BeeGraph.Data
     public interface INodeRelationRepository
     {
         int AddRelation(int edgeId, int fromNodeId, int toNodeId);
-        IEnumerable<EdgeToNodeRelation> GetAll();
+        IEnumerable<EdgeToNodesRelation> GetAll();
     }
 }
