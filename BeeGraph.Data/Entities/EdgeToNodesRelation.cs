@@ -3,6 +3,7 @@
     public class EdgeToNodesRelation
     {
         public int Id { get; set; }
+        public int EdgeId { get; set; }
         public int FromNodeId { get; set; }
         public int ToNodeId { get; set; }
     }
