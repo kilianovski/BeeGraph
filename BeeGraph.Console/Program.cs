@@ -17,7 +17,7 @@ namespace BeeGraph.Console
             //    System.Console.WriteLine(response.Value.Body);
             //}
 
-            var factory = IoC.IoC.Container.GetInstance<IDialogFactory>();
+            var factory = IoC.IoC.Container.GetInstance<IDialogProvider>();
 
             factory.GetDialog();
         }

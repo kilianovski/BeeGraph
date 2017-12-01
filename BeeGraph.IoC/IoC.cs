@@ -27,7 +27,7 @@ namespace BeeGraph.IoC
             container.Register<INodeRepository, NodeSpRepository>();
             container.Register<INodeRelationRepository, NodeRelationRepository>();
 
-            container.Register<IDialogFactory, DialogFactory>();
+            container.Register<IDialogProvider, DialogProvider>();
 
             return container;
         }

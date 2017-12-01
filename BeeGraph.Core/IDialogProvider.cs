@@ -2,7 +2,7 @@
 
 namespace BeeGraph.Core
 {
-    public interface IDialogFactory
+    public interface IDialogProvider
     {
         DialogGraph GetDialog();
     }
