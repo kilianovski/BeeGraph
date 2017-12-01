@@ -25,7 +25,7 @@ namespace BeeGraph.Core
 
             IEnumerable<Node> gluedNodes = GlueLogic.GlueNodes(nodes, edgeRelations);
 
-            return new DialogGraph(gluedNodes);
+            return new DialogGraph(gluedNodes.First()); // todo
         }        
     }
 }

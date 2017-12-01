@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace BeeGraph.Core.Domain
+﻿namespace BeeGraph.Core.Domain
 {
     public class DialogGraph
     {
-        public IEnumerable<Node> Nodes { get; }
+        public Node StartNode { get; }
 
-        public DialogGraph(IEnumerable<Node> nodes)
+        public DialogGraph(Node startNode)
         {
-            Nodes = nodes;
+            StartNode = startNode;
         }
     }
 }
