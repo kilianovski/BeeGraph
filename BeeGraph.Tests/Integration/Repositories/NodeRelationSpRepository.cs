@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using BeeGraph.Data;
 using BeeGraph.Data.Entities;
 using BeeGraph.Tests.Infrastructure;
-using FsCheck;
 using FsCheck.Xunit;
 
 namespace BeeGraph.Tests.Integration
@@ -16,9 +14,9 @@ namespace BeeGraph.Tests.Integration
 
         public NodeRelationSpRepositoryTests()
         {
-            _relationRepository = IoC.Container.GetInstance<INodeRelationRepository>();
-            _edgeRepository = IoC.Container.GetInstance<IEdgeRepository>();
-            _nodeRepository = IoC.Container.GetInstance<INodeRepository>();
+            _relationRepository = TestContainer.Container.GetInstance<INodeRelationRepository>();
+            _edgeRepository = TestContainer.Container.GetInstance<IEdgeRepository>();
+            _nodeRepository = TestContainer.Container.GetInstance<INodeRepository>();
         }
 
         [Property]

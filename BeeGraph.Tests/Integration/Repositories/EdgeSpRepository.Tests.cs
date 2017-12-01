@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using BeeGraph.Data;
+using BeeGraph.Tests.Infrastructure;
 using FsCheck.Xunit;
 
 namespace BeeGraph.Tests.Integration
@@ -10,7 +11,7 @@ namespace BeeGraph.Tests.Integration
 
         public EdgeSpRepositoryTests()
         {
-            _edgeRepository = IoC.Container.GetInstance<IEdgeRepository>();
+            _edgeRepository = TestContainer.Container.GetInstance<IEdgeRepository>();
         }
 
         [Property]
