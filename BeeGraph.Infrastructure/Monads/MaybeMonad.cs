@@ -11,9 +11,17 @@ namespace BeeGraph.Infrastructure.Monads
                 ? f(m.Value)
                 : Maybe.Nothing<TResult>();
 
-        public static Maybe<TResult> Apply<T, TResult>(this Maybe<T> m, Func<T, TResult> f) =>
+        public static Maybe<TResult> Map<T, TResult>(this Maybe<T> m, Func<T, TResult> f) =>
             m.HasValue
                 ? Maybe.Just(f(m.Value))
                 : Maybe.Nothing<TResult>();
+
+        public static TResult Match<T, TResult>(
+            this Maybe<T> m,
+            Func<T, TResult> ifJust,
+            Func<TResult> ifNothing) => 
+                m.HasValue
+                    ? ifJust(m.Value)
+                    : ifNothing();
     }
 }
