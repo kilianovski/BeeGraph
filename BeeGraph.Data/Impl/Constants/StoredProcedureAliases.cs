@@ -7,5 +7,8 @@
 
         public const string GetAllEdges = "sp_GetEdges";
         public const string CreateEdge = "sp_InsertEdge";
+
+        public const string GetEdgeToNodeRelations = "sp_GetEdgeToNodesRelations";
+        public const string InsertEdgeToNodesRelation = "sp_InsertEdgeToNodesRelation";
     }
 }

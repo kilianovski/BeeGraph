@@ -23,6 +23,7 @@ namespace BeeGraph.Data
             
             container.Register<IEdgeRepository, EdgeSpRepository>();
             container.Register<INodeRepository, NodeSpRepository>();
+            container.Register<INodeRelationRepository, NodeRelationRepository>();            
 
             return container;
         }
