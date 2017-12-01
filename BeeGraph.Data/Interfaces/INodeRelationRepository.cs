@@ -7,5 +7,7 @@ namespace BeeGraph.Data
     {
         int AddRelation(int edgeId, int fromNodeId, int toNodeId);
         IEnumerable<EdgeToNodesRelation> GetAll();
+
+        IEnumerable<EdgeRelationEntity> GetAllEdgeRelations();
     }
 }

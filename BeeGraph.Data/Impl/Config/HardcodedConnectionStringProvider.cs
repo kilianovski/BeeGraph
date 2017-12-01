@@ -2,7 +2,7 @@
 {
     public class HardcodedConnectionStringProvider : IConnectionStringProvider
     {
-        private static string cs = "Server=localhost\\SQLEXPRESS;Database=BeeGraph_Test;Trusted_Connection=True;";
+        private static string cs = "Server=localhost\\SQLEXPRESS;Database=BeeGraph;Trusted_Connection=True;";
 
         public string ConnectionString => cs;
     }

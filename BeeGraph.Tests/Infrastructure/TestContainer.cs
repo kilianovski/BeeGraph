@@ -27,7 +27,7 @@ namespace BeeGraph.Tests.Infrastructure
 
         private static void RegisterDefaultBindings(Container container)
         {
-            var defaultBindings = IoC.Container.GetCurrentRegistrations().Except(container.GetCurrentRegistrations(), InstanceProducerComparer.Instance).ToList();
+            var defaultBindings = IoC.IoC.Container.GetCurrentRegistrations().Except(container.GetCurrentRegistrations(), InstanceProducerComparer.Instance).ToList();
             defaultBindings.ForEach(b => Register(b, container));
         }
 

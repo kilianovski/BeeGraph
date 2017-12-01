@@ -49,6 +49,21 @@ namespace BeeGraph.Data
             return _spHelper.ExecuteReader(StoredProcedure.GetEdgeToNodeRelations, ReadNode);
         }
 
+        public IEnumerable<EdgeRelationEntity> GetAllEdgeRelations()
+        {
+            return _spHelper.ExecuteReader(StoredProcedure.GetEdgeRelations, ReadEdgeRelation);
+        }
+
+        private EdgeRelationEntity ReadEdgeRelation(SqlDataReader reader)
+        {
+            int fromNodeId = reader.GetInt32(0);
+            int edgeId = reader.GetInt32(1);
+            string edgeKey = reader.GetString(2);
+            int toNodeId = reader.GetInt32(3);
+
+            return new EdgeRelationEntity(fromNodeId, edgeId, edgeKey, toNodeId);
+        }
+
         private EdgeToNodesRelation ReadNode(SqlDataReader reader)
         {
             int id = reader.GetInt32(0);

@@ -1,8 +1,10 @@
-﻿using BeeGraph.Data.Config;
+﻿using BeeGraph.Core;
+using BeeGraph.Data;
+using BeeGraph.Data.Config;
 using BeeGraph.Data.Helpers;
 using SimpleInjector;
 
-namespace BeeGraph.Data
+namespace BeeGraph.IoC
 {
     public static class IoC
     {
@@ -23,7 +25,9 @@ namespace BeeGraph.Data
             
             container.Register<IEdgeRepository, EdgeSpRepository>();
             container.Register<INodeRepository, NodeSpRepository>();
-            container.Register<INodeRelationRepository, NodeRelationRepository>();            
+            container.Register<INodeRelationRepository, NodeRelationRepository>();
+
+            container.Register<IDialogFactory, DialogFactory>();
 
             return container;
         }

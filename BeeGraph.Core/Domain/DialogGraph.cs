@@ -5,12 +5,10 @@ namespace BeeGraph.Core.Domain
     public class DialogGraph
     {
         public IEnumerable<Node> Nodes { get; }
-        public IEnumerable<Edge> Edges { get; }
 
-        public DialogGraph(IEnumerable<Node> nodes, IEnumerable<Edge> edges)
+        public DialogGraph(IEnumerable<Node> nodes)
         {
             Nodes = nodes;
-            Edges = edges;
         }
     }
 }

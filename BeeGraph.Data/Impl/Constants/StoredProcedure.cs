@@ -13,6 +13,10 @@ namespace BeeGraph.Data.Constants
         public static StoredProcedure GetEdgeToNodeRelations => new StoredProcedure(StoredProcedureAliases.GetEdgeToNodeRelations);
         public static StoredProcedure CreateEdgeToNodeRelation => new StoredProcedure(InsertEdgeToNodesRelation);
 
+        public static StoredProcedure GetEdgeRelations => Inst("sp_GetEdgeRelations");
+
+        private static StoredProcedure Inst(string alias) => new StoredProcedure(alias);
+
 
         public string Name { get; }
 

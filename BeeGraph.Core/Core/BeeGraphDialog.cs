@@ -15,12 +15,12 @@ namespace BeeGraph.Core
 
         public Maybe<Node> Talk(string userResponse)
         {
-            var resultNode = _graph
-                .Edges
-                .Find(e => e.Key == userResponse)
-                .Apply(e => e.To);
+            //var resultNode = _graph
+            //    .Edges
+            //    .Find(e => e.Key == userResponse)
+            //    .Apply(e => e.To);
 
-            return resultNode;
+            return null;
         }
     }
 }
