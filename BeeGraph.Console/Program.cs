@@ -10,16 +10,16 @@ namespace BeeGraph.Console
     {
         static void Main(string[] args)
         {
-            var factory = IoC.IoC.Container.GetInstance<IDialogProvider>();
-            var graph = factory.GetDialog();
-            var dialog = new UserDialog(new StatefulDialog(graph));
+            //var factory = IoC.IoC.Container.GetInstance<INodeProvider>();
+            //var graph = factory.GetGraph();
+            //var dialog = new UserDialog(new StatefulDialog(graph));
 
-            while (true)
-            {
-                var userMessage = ReadLine();
-                var response = dialog.Talk(userMessage);
-                System.Console.WriteLine(response);
-            }
+            //while (true)
+            //{
+            //    var userMessage = ReadLine();
+            //    var response = dialog.Talk(userMessage);
+            //    WriteLine(response);
+            //}
 
         }
     }

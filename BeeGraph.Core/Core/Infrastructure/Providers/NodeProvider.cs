@@ -1,16 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using BeeGraph.Core.Domain;
 using BeeGraph.Data;
 
 namespace BeeGraph.Core
 {
-    public class DialogProvider : IDialogProvider
+    public class NodeProvider : INodeProvider
     {
         private readonly INodeRepository _nodeRepository;
         private readonly INodeRelationRepository _relationRepository;
 
-        public DialogProvider(
+        public NodeProvider(
             INodeRepository nodeRepository,
             INodeRelationRepository relationRepository)
         {
@@ -18,14 +19,14 @@ namespace BeeGraph.Core
             _relationRepository = relationRepository;
         }
 
-        public DialogGraph GetDialog()
+        public IEnumerable<Node> GetAll()
         {
             var nodes = _nodeRepository.GetAll().ToList();
             var edgeRelations = _relationRepository.GetAllEdgeRelations().ToList();
 
             IEnumerable<Node> gluedNodes = GlueLogic.GlueNodes(nodes, edgeRelations);
 
-            return new DialogGraph(gluedNodes.First()); // todo
-        }        
+            return gluedNodes;
+        }
     }
 }
