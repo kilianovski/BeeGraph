@@ -8,29 +8,27 @@ namespace BeeGraph.Core
 {
     public static class GlueLogic
     {
+        // TODO use builder to maintain immutability
         public static IEnumerable<Node> GlueNodes(List<NodeEntity> nodes, List<EdgeRelationEntity> edgeRelations)
         {
             var mappedNodes = nodes.Select(MapNodeEntity).ToList();
             var resolveNode = GetNodeResolver(mappedNodes);
-            var gluedNodes = edgeRelations.Select(e => GlueNodes(e, resolveNode));
-            return gluedNodes;
+            edgeRelations.ForEach(e => GlueNodes(e, resolveNode));
+            return mappedNodes;
         }
 
-        private static Node GlueNodes(EdgeRelationEntity rel, Func<int, Node> resolveNode)
+        private static void GlueNodes(EdgeRelationEntity rel, Dictionary<int, Node> nodeMap)
         {
-            var fromNode = resolveNode(rel.FromNodeId);
-            var toNode = resolveNode(rel.ToNodeId);
+            var fromNode = nodeMap[rel.FromNodeId];
+            var toNode = nodeMap[rel.ToNodeId];
 
             var edge = new Edge(rel.EdgeKey, toNode);
 
-            return fromNode.WithNewOutEdge(edge);
+            fromNode.AppendEdge(edge);
         }
 
-        private static Func<int, Node> GetNodeResolver(IEnumerable<Node> nodes)
-        {
-            var dict = nodes.ToDictionary(n => n.Id);
-            return id => dict[id];
-        }
+        private static Dictionary<int, Node> GetNodeResolver(IEnumerable<Node> nodes) => 
+            nodes.ToDictionary(n => n.Id);
 
         private static Node MapNodeEntity(NodeEntity e) => new Node(e.Id, e.Body);
     }

@@ -7,7 +7,7 @@ namespace BeeGraph.Core.Domain
     {
         public int Id { get; }
         public string Body { get; }
-        public IEnumerable<Edge> OutEdges { get; }
+        public IEnumerable<Edge> OutEdges { get; private set; }
 
         public Node(int id, string body) 
             : this(id, body, System.Linq.Enumerable.Empty<Edge>())
@@ -22,5 +22,8 @@ namespace BeeGraph.Core.Domain
 
         public Node WithNewOutEdge(Edge e) =>
             new Node(Id, Body, OutEdges.Append(e));
+
+        public void AppendEdge(Edge e) =>
+            OutEdges = OutEdges.Append(e);
     }
 }

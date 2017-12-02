@@ -1,4 +1,7 @@
-﻿using BeeGraph.Infrastructure.Monads;
+﻿using System.Collections.Generic;
+using System.Linq;
+using BeeGraph.Core.Domain;
+using BeeGraph.Infrastructure.Monads;
 
 namespace BeeGraph.Core
 {
@@ -13,11 +16,17 @@ namespace BeeGraph.Core
             _statefulDialog = statefulDialog;
         }
 
-        public string Talk(string message)
+        public (string response, IEnumerable<Edge> options) Talk(string message)
         {
             return _statefulDialog.Talk(message).Match(
-                ifJust: n => n.Body,
-                ifNothing: () => DefaultAnswer);
+                ifJust: ParseNode,
+                ifNothing: () => (DefaultAnswer, Enumerable.Empty<Edge>()));
         }
+
+        public static (string response, IEnumerable<Edge> options) ParseNode(Node n) =>
+            (n.Body, GetNodeOptioins(n));
+
+        private static IEnumerable<Edge> GetNodeOptioins(Node n) =>
+            n.OutEdges;
     }
 }
