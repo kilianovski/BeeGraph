@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeeGraph.Data", "BeeGraph.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeeGraph.Tests", "BeeGraph.Tests\BeeGraph.Tests.csproj", "{3DF66A0C-DF0F-4E11-97C4-B81A37EA6D10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeGraph.Infrastructure", "BeeGraph.Infrastructure\BeeGraph.Infrastructure.csproj", "{D617B38F-972F-4938-8EA1-E38824D83044}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeeGraph.Infrastructure", "BeeGraph.Infrastructure\BeeGraph.Infrastructure.csproj", "{D617B38F-972F-4938-8EA1-E38824D83044}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeGraph.Core", "BeeGraph.Core\BeeGraph.Core.csproj", "{1A4E52AD-A7D0-42E9-AFF5-FD3B8C8F722E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeeGraph.Core", "BeeGraph.Core\BeeGraph.Core.csproj", "{1A4E52AD-A7D0-42E9-AFF5-FD3B8C8F722E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeGraph.IoC", "BeeGraph.IoC\BeeGraph.IoC.csproj", "{8F7E41B0-6321-401A-AFD4-4ABE967DEAB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeeGraph.IoC", "BeeGraph.IoC\BeeGraph.IoC.csproj", "{8F7E41B0-6321-401A-AFD4-4ABE967DEAB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeeGraph.Console", "BeeGraph.Console\BeeGraph.Console.csproj", "{C48D03D7-8B59-48E9-828A-7E9C93EA41F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeeGraph.Console", "BeeGraph.Console\BeeGraph.Console.csproj", "{C48D03D7-8B59-48E9-828A-7E9C93EA41F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
