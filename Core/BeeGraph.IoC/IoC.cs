@@ -21,7 +21,6 @@ namespace BeeGraph.IoC
                 
             container.Register<IConnectionStringProvider, HardcodedConnectionStringProvider>();
             container.Register<IStoredProcedureHelper, StoredProcedureHelper>();
-
             
             container.Register<IEdgeRepository, EdgeSpRepository>();
             container.Register<INodeRepository, NodeSpRepository>();

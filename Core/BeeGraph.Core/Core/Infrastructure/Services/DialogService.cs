@@ -23,8 +23,8 @@ namespace BeeGraph.Core
             var nodes = _nodeProvider.GetAll();
             var dialogs = _dialogRepository.GetAll();
 
-            return dialogs.Select(
-                d => nodes.First(n => n.Id ==d.StartNodeId))
+            return dialogs
+                .Select(d => nodes.First(n => n.Id == d.StartNodeId))
                 .Select(n => new DialogGraph(n));
         }
     }
