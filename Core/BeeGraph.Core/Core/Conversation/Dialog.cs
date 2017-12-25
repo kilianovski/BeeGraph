@@ -2,7 +2,7 @@
 using BeeGraph.Infrastructure;
 using BeeGraph.Infrastructure.Monads;
 
-namespace BeeGraph.Core
+namespace BeeGraph.Core.Conversation
 {
     public static class Dialog
     {

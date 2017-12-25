@@ -3,7 +3,7 @@ using System.Linq;
 using BeeGraph.Core.Domain;
 using BeeGraph.Infrastructure.Monads;
 
-namespace BeeGraph.Core
+namespace BeeGraph.Core.Conversation
 {
     public class UserDialog
     {
