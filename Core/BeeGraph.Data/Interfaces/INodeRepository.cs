@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BeeGraph.Data.Entities;
+using BeeGraph.Infrastructure.Monads;
 
 namespace BeeGraph.Data
 {
@@ -7,5 +8,6 @@ namespace BeeGraph.Data
     {
         int CreateNode(string body);
         IEnumerable<NodeEntity> GetAll();
+        Maybe<NodeEntity> Get(int id);
     }
 }

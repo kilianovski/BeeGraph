@@ -5,6 +5,7 @@ namespace BeeGraph.Data.Constants
     public class StoredProcedure
     {
         public static StoredProcedure GetNodes => new StoredProcedure(GetAllNodes);
+        public static StoredProcedure GetNodeById => new StoredProcedure(StoredProcedureAliases.GetNodeById);
         public static StoredProcedure InsertNode => new StoredProcedure(CreateNode);
 
         public static StoredProcedure GetEdges => new StoredProcedure(GetAllEdges);
