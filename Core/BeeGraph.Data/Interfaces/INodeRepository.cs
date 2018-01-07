@@ -9,5 +9,7 @@ namespace BeeGraph.Data
         int CreateNode(string body);
         IEnumerable<NodeEntity> GetAll();
         Maybe<NodeEntity> Get(int id);
+
+        void Delete(int id);
     }
 }
