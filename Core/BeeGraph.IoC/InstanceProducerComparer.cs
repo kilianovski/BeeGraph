@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using SimpleInjector;
 
-namespace BeeGraph.Tests.Infrastructure
+namespace BeeGraph.IoC
 {
     public class InstanceProducerComparer : IEqualityComparer<InstanceProducer>
     {
