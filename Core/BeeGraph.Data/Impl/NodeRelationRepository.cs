@@ -56,12 +56,15 @@ namespace BeeGraph.Data
 
         private EdgeRelationEntity ReadEdgeRelation(SqlDataReader reader)
         {
-            int fromNodeId = reader.GetInt32(0);
-            int edgeId = reader.GetInt32(1);
-            string edgeKey = reader.GetString(2);
-            int toNodeId = reader.GetInt32(3);
+            int relationId = reader.GetInt32(0);
+            int fromNodeId = reader.GetInt32(1);
+            string fromNodeBody = reader.GetString(2);
+            int edgeId = reader.GetInt32(3);
+            string edgeKey = reader.GetString(4);
+            int toNodeId = reader.GetInt32(5);
+            string toNodeBody = reader.GetString(6);
 
-            return new EdgeRelationEntity(fromNodeId, edgeId, edgeKey, toNodeId);
+            return new EdgeRelationEntity(relationId, fromNodeId, fromNodeBody, edgeId, edgeKey, toNodeId, toNodeBody);
         }
 
         private EdgeToNodesRelation ReadNode(SqlDataReader reader)
