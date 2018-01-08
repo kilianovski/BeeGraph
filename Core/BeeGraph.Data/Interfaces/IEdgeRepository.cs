@@ -7,5 +7,6 @@ namespace BeeGraph.Data
     {
         int CreateEdge(string key);
         IEnumerable<EdgeEntity> GetAll();
+        void Delete(int edgeId);
     }
 }
