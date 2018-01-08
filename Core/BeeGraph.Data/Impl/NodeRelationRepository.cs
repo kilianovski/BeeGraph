@@ -1,18 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
+using BeeGraph.Data.Config;
 using BeeGraph.Data.Constants;
 using BeeGraph.Data.Entities;
 using BeeGraph.Data.Helpers;
+using static BeeGraph.Data.Helpers.SqlUtils;
 
 namespace BeeGraph.Data
 {
     public class NodeRelationRepository : INodeRelationRepository
     {
         private readonly IStoredProcedureHelper _spHelper;
+        private readonly string _connectionString;
 
-        public NodeRelationRepository(IStoredProcedureHelper spHelper)
+        public NodeRelationRepository(IStoredProcedureHelper spHelper, IConnectionStringProvider connectionStringProvider)
         {
             _spHelper = spHelper;
+            _connectionString = connectionStringProvider.ConnectionString;
         }
 
         public int AddRelation(int edgeId, int fromNodeId, int toNodeId)
@@ -52,6 +56,19 @@ namespace BeeGraph.Data
         public IEnumerable<EdgeRelationEntity> GetAllEdgeRelations()
         {
             return _spHelper.ExecuteReader(StoredProcedure.GetEdgeRelations, ReadEdgeRelation);
+        }
+
+        public void Delete(int relationId)
+        {
+            var sqlRequest = $"DELETE FROM EdgeToNodes WHERE Id = {relationId};";
+
+            Connect(_connectionString, connection =>
+                {
+                    SqlCommand command = new SqlCommand(sqlRequest, connection);
+                    command.ExecuteNonQuery();
+                    return new object();
+                }
+            );
         }
 
         private EdgeRelationEntity ReadEdgeRelation(SqlDataReader reader)

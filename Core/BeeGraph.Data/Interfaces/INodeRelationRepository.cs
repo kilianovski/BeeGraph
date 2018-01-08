@@ -9,5 +9,6 @@ namespace BeeGraph.Data
         IEnumerable<EdgeToNodesRelation> GetAll();
 
         IEnumerable<EdgeRelationEntity> GetAllEdgeRelations();
+        void Delete(int relationId);
     }
 }
